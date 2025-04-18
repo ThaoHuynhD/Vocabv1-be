@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model vocab_anto_table {
+  word_id       Int         @id @default(autoincrement()) @db.UnsignedInt
+  word_antonyms String      @db.Text
+  vocab_table   vocab_table @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction, map: "vocab_anto_table_word_id_foreign")
+}
+
+model vocab_mean_table {
+  mean_id      Int     @id @default(autoincrement()) @db.UnsignedInt
+  word_id      Int
+  word_meaning String  @db.Text
+  word_example String? @db.Text
+  word_image   String? @db.VarChar(255)
+}
+
+model vocab_rela_table {
+  word_id           Int         @id @default(autoincrement()) @db.UnsignedInt
+  word_related_name String      @db.Text
+  vocab_table       vocab_table @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction, map: "vocab_rela_table_word_id_foreign")
+}
+
+model vocab_syn_table {
+  word_id       Int         @id @default(autoincrement()) @db.UnsignedInt
+  word_synonyms String      @db.Text
+  vocab_table   vocab_table @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction, map: "vocab_syn_table_word_id_foreign")
+}
+
+model vocab_table {
+  word_id          Int               @id @default(autoincrement()) @db.UnsignedInt
+  word_name        String            @db.VarChar(255)
+  word_type        String            @db.VarChar(255)
+  word_ipa         String?           @db.VarChar(255)
+  word_voice       String?           @db.Text
+  word_topic       String?           @db.Text
+  vocab_anto_table vocab_anto_table?
+  vocab_rela_table vocab_rela_table?
+  vocab_syn_table  vocab_syn_table?
+}
+
+model vocab_topic_table {
+  topic_id   Int    @id @default(autoincrement()) @db.UnsignedInt
+  topic_name String @db.VarChar(255)
+}
+
+model vocab_type_table {
+  type_id     Int    @id @default(autoincrement()) @db.UnsignedInt
+  type_symble String @db.VarChar(255)
+  type_name   String @db.VarChar(255)
+}
