@@ -15,11 +15,14 @@ model vocab_anto_table {
 }
 
 model vocab_mean_table {
-  mean_id      Int     @id @default(autoincrement()) @db.UnsignedInt
-  word_id      Int
-  word_meaning String  @db.Text
-  word_example String? @db.Text
-  word_image   String? @db.VarChar(255)
+  mean_id      Int         @id @default(autoincrement()) @db.UnsignedInt
+  word_id      Int         @db.UnsignedInt
+  word_meaning String      @db.Text
+  word_example String?     @db.Text
+  word_image   String?     @db.VarChar(255)
+  vocab_table  vocab_table @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction, map: "vocab_mean_table_word_id_foreign")
+
+  @@index([word_id], map: "vocab_mean_table_word_id_foreign")
 }
 
 model vocab_rela_table {
@@ -35,13 +38,14 @@ model vocab_syn_table {
 }
 
 model vocab_table {
-  word_id          Int               @id @default(autoincrement()) @db.UnsignedInt
-  word_name        String            @db.VarChar(255)
-  word_type        String            @db.VarChar(255)
-  word_ipa         String?           @db.VarChar(255)
-  word_voice       String?           @db.Text
-  word_topic       String?           @db.Text
+  word_id          Int                @id @default(autoincrement()) @db.UnsignedInt
+  word_name        String             @db.VarChar(255)
+  word_type        String             @db.VarChar(255)
+  word_ipa         String?            @db.VarChar(255)
+  word_voice       String?            @db.Text
+  word_topic       String?            @db.Text
   vocab_anto_table vocab_anto_table?
+  vocab_mean_table vocab_mean_table[]
   vocab_rela_table vocab_rela_table?
   vocab_syn_table  vocab_syn_table?
 }

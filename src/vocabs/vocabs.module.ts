@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { VocabsController } from './vocabs.controller';
-import { VocabService } from './vocabs.service';
+import { VocabsService } from './vocabs.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Module({
-  providers: [VocabService, PrismaService],
+  providers: [VocabsService, PrismaService],
   controllers: [VocabsController]
 })
 export class VocabsModule {}

@@ -1354,6 +1354,36 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type Vocab_tableCountOutputType
+   */
+
+  export type Vocab_tableCountOutputType = {
+    vocab_mean_table: number
+  }
+
+  export type Vocab_tableCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    vocab_mean_table?: boolean | Vocab_tableCountOutputTypeCountVocab_mean_tableArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Vocab_tableCountOutputType without action
+   */
+  export type Vocab_tableCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vocab_tableCountOutputType
+     */
+    select?: Vocab_tableCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Vocab_tableCountOutputType without action
+   */
+  export type Vocab_tableCountOutputTypeCountVocab_mean_tableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: vocab_mean_tableWhereInput
+  }
+
 
   /**
    * Models
@@ -2491,6 +2521,7 @@ export namespace Prisma {
     word_meaning?: boolean
     word_example?: boolean
     word_image?: boolean
+    vocab_table?: boolean | vocab_tableDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["vocab_mean_table"]>
 
 
@@ -2504,10 +2535,15 @@ export namespace Prisma {
   }
 
   export type vocab_mean_tableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"mean_id" | "word_id" | "word_meaning" | "word_example" | "word_image", ExtArgs["result"]["vocab_mean_table"]>
+  export type vocab_mean_tableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    vocab_table?: boolean | vocab_tableDefaultArgs<ExtArgs>
+  }
 
   export type $vocab_mean_tablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "vocab_mean_table"
-    objects: {}
+    objects: {
+      vocab_table: Prisma.$vocab_tablePayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       mean_id: number
       word_id: number
@@ -2854,6 +2890,7 @@ export namespace Prisma {
    */
   export interface Prisma__vocab_mean_tableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    vocab_table<T extends vocab_tableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, vocab_tableDefaultArgs<ExtArgs>>): Prisma__vocab_tableClient<$Result.GetResult<Prisma.$vocab_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2905,6 +2942,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * Filter, which vocab_mean_table to fetch.
      */
     where: vocab_mean_tableWhereUniqueInput
@@ -2923,6 +2964,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * Filter, which vocab_mean_table to fetch.
      */
     where: vocab_mean_tableWhereUniqueInput
@@ -2940,6 +2985,10 @@ export namespace Prisma {
      * Omit specific fields from the vocab_mean_table
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
     /**
      * Filter, which vocab_mean_table to fetch.
      */
@@ -2989,6 +3038,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * Filter, which vocab_mean_table to fetch.
      */
     where?: vocab_mean_tableWhereInput
@@ -3037,6 +3090,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * Filter, which vocab_mean_tables to fetch.
      */
     where?: vocab_mean_tableWhereInput
@@ -3080,6 +3137,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * The data needed to create a vocab_mean_table.
      */
     data: XOR<vocab_mean_tableCreateInput, vocab_mean_tableUncheckedCreateInput>
@@ -3108,6 +3169,10 @@ export namespace Prisma {
      * Omit specific fields from the vocab_mean_table
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
     /**
      * The data needed to update a vocab_mean_table.
      */
@@ -3149,6 +3214,10 @@ export namespace Prisma {
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    /**
      * The filter to search for the vocab_mean_table to update in case it exists.
      */
     where: vocab_mean_tableWhereUniqueInput
@@ -3174,6 +3243,10 @@ export namespace Prisma {
      * Omit specific fields from the vocab_mean_table
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
     /**
      * Filter which vocab_mean_table to delete.
      */
@@ -3206,6 +3279,10 @@ export namespace Prisma {
      * Omit specific fields from the vocab_mean_table
      */
     omit?: vocab_mean_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
   }
 
 
@@ -5276,8 +5353,10 @@ export namespace Prisma {
     word_voice?: boolean
     word_topic?: boolean
     vocab_anto_table?: boolean | vocab_table$vocab_anto_tableArgs<ExtArgs>
+    vocab_mean_table?: boolean | vocab_table$vocab_mean_tableArgs<ExtArgs>
     vocab_rela_table?: boolean | vocab_table$vocab_rela_tableArgs<ExtArgs>
     vocab_syn_table?: boolean | vocab_table$vocab_syn_tableArgs<ExtArgs>
+    _count?: boolean | Vocab_tableCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["vocab_table"]>
 
 
@@ -5294,14 +5373,17 @@ export namespace Prisma {
   export type vocab_tableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"word_id" | "word_name" | "word_type" | "word_ipa" | "word_voice" | "word_topic", ExtArgs["result"]["vocab_table"]>
   export type vocab_tableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     vocab_anto_table?: boolean | vocab_table$vocab_anto_tableArgs<ExtArgs>
+    vocab_mean_table?: boolean | vocab_table$vocab_mean_tableArgs<ExtArgs>
     vocab_rela_table?: boolean | vocab_table$vocab_rela_tableArgs<ExtArgs>
     vocab_syn_table?: boolean | vocab_table$vocab_syn_tableArgs<ExtArgs>
+    _count?: boolean | Vocab_tableCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $vocab_tablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "vocab_table"
     objects: {
       vocab_anto_table: Prisma.$vocab_anto_tablePayload<ExtArgs> | null
+      vocab_mean_table: Prisma.$vocab_mean_tablePayload<ExtArgs>[]
       vocab_rela_table: Prisma.$vocab_rela_tablePayload<ExtArgs> | null
       vocab_syn_table: Prisma.$vocab_syn_tablePayload<ExtArgs> | null
     }
@@ -5653,6 +5735,7 @@ export namespace Prisma {
   export interface Prisma__vocab_tableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     vocab_anto_table<T extends vocab_table$vocab_anto_tableArgs<ExtArgs> = {}>(args?: Subset<T, vocab_table$vocab_anto_tableArgs<ExtArgs>>): Prisma__vocab_anto_tableClient<$Result.GetResult<Prisma.$vocab_anto_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    vocab_mean_table<T extends vocab_table$vocab_mean_tableArgs<ExtArgs> = {}>(args?: Subset<T, vocab_table$vocab_mean_tableArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$vocab_mean_tablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     vocab_rela_table<T extends vocab_table$vocab_rela_tableArgs<ExtArgs> = {}>(args?: Subset<T, vocab_table$vocab_rela_tableArgs<ExtArgs>>): Prisma__vocab_rela_tableClient<$Result.GetResult<Prisma.$vocab_rela_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     vocab_syn_table<T extends vocab_table$vocab_syn_tableArgs<ExtArgs> = {}>(args?: Subset<T, vocab_table$vocab_syn_tableArgs<ExtArgs>>): Prisma__vocab_syn_tableClient<$Result.GetResult<Prisma.$vocab_syn_tablePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -6049,6 +6132,30 @@ export namespace Prisma {
      */
     include?: vocab_anto_tableInclude<ExtArgs> | null
     where?: vocab_anto_tableWhereInput
+  }
+
+  /**
+   * vocab_table.vocab_mean_table
+   */
+  export type vocab_table$vocab_mean_tableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the vocab_mean_table
+     */
+    select?: vocab_mean_tableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the vocab_mean_table
+     */
+    omit?: vocab_mean_tableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: vocab_mean_tableInclude<ExtArgs> | null
+    where?: vocab_mean_tableWhereInput
+    orderBy?: vocab_mean_tableOrderByWithRelationInput | vocab_mean_tableOrderByWithRelationInput[]
+    cursor?: vocab_mean_tableWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Vocab_mean_tableScalarFieldEnum | Vocab_mean_tableScalarFieldEnum[]
   }
 
   /**
@@ -8116,6 +8223,7 @@ export namespace Prisma {
     word_meaning?: StringFilter<"vocab_mean_table"> | string
     word_example?: StringNullableFilter<"vocab_mean_table"> | string | null
     word_image?: StringNullableFilter<"vocab_mean_table"> | string | null
+    vocab_table?: XOR<Vocab_tableScalarRelationFilter, vocab_tableWhereInput>
   }
 
   export type vocab_mean_tableOrderByWithRelationInput = {
@@ -8124,6 +8232,7 @@ export namespace Prisma {
     word_meaning?: SortOrder
     word_example?: SortOrderInput | SortOrder
     word_image?: SortOrderInput | SortOrder
+    vocab_table?: vocab_tableOrderByWithRelationInput
     _relevance?: vocab_mean_tableOrderByRelevanceInput
   }
 
@@ -8136,6 +8245,7 @@ export namespace Prisma {
     word_meaning?: StringFilter<"vocab_mean_table"> | string
     word_example?: StringNullableFilter<"vocab_mean_table"> | string | null
     word_image?: StringNullableFilter<"vocab_mean_table"> | string | null
+    vocab_table?: XOR<Vocab_tableScalarRelationFilter, vocab_tableWhereInput>
   }, "mean_id">
 
   export type vocab_mean_tableOrderByWithAggregationInput = {
@@ -8259,6 +8369,7 @@ export namespace Prisma {
     word_voice?: StringNullableFilter<"vocab_table"> | string | null
     word_topic?: StringNullableFilter<"vocab_table"> | string | null
     vocab_anto_table?: XOR<Vocab_anto_tableNullableScalarRelationFilter, vocab_anto_tableWhereInput> | null
+    vocab_mean_table?: Vocab_mean_tableListRelationFilter
     vocab_rela_table?: XOR<Vocab_rela_tableNullableScalarRelationFilter, vocab_rela_tableWhereInput> | null
     vocab_syn_table?: XOR<Vocab_syn_tableNullableScalarRelationFilter, vocab_syn_tableWhereInput> | null
   }
@@ -8271,6 +8382,7 @@ export namespace Prisma {
     word_voice?: SortOrderInput | SortOrder
     word_topic?: SortOrderInput | SortOrder
     vocab_anto_table?: vocab_anto_tableOrderByWithRelationInput
+    vocab_mean_table?: vocab_mean_tableOrderByRelationAggregateInput
     vocab_rela_table?: vocab_rela_tableOrderByWithRelationInput
     vocab_syn_table?: vocab_syn_tableOrderByWithRelationInput
     _relevance?: vocab_tableOrderByRelevanceInput
@@ -8287,6 +8399,7 @@ export namespace Prisma {
     word_voice?: StringNullableFilter<"vocab_table"> | string | null
     word_topic?: StringNullableFilter<"vocab_table"> | string | null
     vocab_anto_table?: XOR<Vocab_anto_tableNullableScalarRelationFilter, vocab_anto_tableWhereInput> | null
+    vocab_mean_table?: Vocab_mean_tableListRelationFilter
     vocab_rela_table?: XOR<Vocab_rela_tableNullableScalarRelationFilter, vocab_rela_tableWhereInput> | null
     vocab_syn_table?: XOR<Vocab_syn_tableNullableScalarRelationFilter, vocab_syn_tableWhereInput> | null
   }, "word_id">
@@ -8437,10 +8550,10 @@ export namespace Prisma {
   }
 
   export type vocab_mean_tableCreateInput = {
-    word_id: number
     word_meaning: string
     word_example?: string | null
     word_image?: string | null
+    vocab_table: vocab_tableCreateNestedOneWithoutVocab_mean_tableInput
   }
 
   export type vocab_mean_tableUncheckedCreateInput = {
@@ -8452,10 +8565,10 @@ export namespace Prisma {
   }
 
   export type vocab_mean_tableUpdateInput = {
-    word_id?: IntFieldUpdateOperationsInput | number
     word_meaning?: StringFieldUpdateOperationsInput | string
     word_example?: NullableStringFieldUpdateOperationsInput | string | null
     word_image?: NullableStringFieldUpdateOperationsInput | string | null
+    vocab_table?: vocab_tableUpdateOneRequiredWithoutVocab_mean_tableNestedInput
   }
 
   export type vocab_mean_tableUncheckedUpdateInput = {
@@ -8475,7 +8588,6 @@ export namespace Prisma {
   }
 
   export type vocab_mean_tableUpdateManyMutationInput = {
-    word_id?: IntFieldUpdateOperationsInput | number
     word_meaning?: StringFieldUpdateOperationsInput | string
     word_example?: NullableStringFieldUpdateOperationsInput | string | null
     word_image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8564,6 +8676,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableCreateNestedOneWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableCreateNestedOneWithoutVocab_tableInput
   }
@@ -8576,6 +8689,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableUncheckedCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableUncheckedCreateNestedOneWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableUncheckedCreateNestedOneWithoutVocab_tableInput
   }
@@ -8587,6 +8701,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUpdateManyWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUpdateOneWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUpdateOneWithoutVocab_tableNestedInput
   }
@@ -8599,6 +8714,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
   }
@@ -8935,6 +9051,12 @@ export namespace Prisma {
     isNot?: vocab_anto_tableWhereInput | null
   }
 
+  export type Vocab_mean_tableListRelationFilter = {
+    every?: vocab_mean_tableWhereInput
+    some?: vocab_mean_tableWhereInput
+    none?: vocab_mean_tableWhereInput
+  }
+
   export type Vocab_rela_tableNullableScalarRelationFilter = {
     is?: vocab_rela_tableWhereInput | null
     isNot?: vocab_rela_tableWhereInput | null
@@ -8943,6 +9065,10 @@ export namespace Prisma {
   export type Vocab_syn_tableNullableScalarRelationFilter = {
     is?: vocab_syn_tableWhereInput | null
     isNot?: vocab_syn_tableWhereInput | null
+  }
+
+  export type vocab_mean_tableOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type vocab_tableOrderByRelevanceInput = {
@@ -9073,8 +9199,22 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type vocab_tableCreateNestedOneWithoutVocab_mean_tableInput = {
+    create?: XOR<vocab_tableCreateWithoutVocab_mean_tableInput, vocab_tableUncheckedCreateWithoutVocab_mean_tableInput>
+    connectOrCreate?: vocab_tableCreateOrConnectWithoutVocab_mean_tableInput
+    connect?: vocab_tableWhereUniqueInput
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type vocab_tableUpdateOneRequiredWithoutVocab_mean_tableNestedInput = {
+    create?: XOR<vocab_tableCreateWithoutVocab_mean_tableInput, vocab_tableUncheckedCreateWithoutVocab_mean_tableInput>
+    connectOrCreate?: vocab_tableCreateOrConnectWithoutVocab_mean_tableInput
+    upsert?: vocab_tableUpsertWithoutVocab_mean_tableInput
+    connect?: vocab_tableWhereUniqueInput
+    update?: XOR<XOR<vocab_tableUpdateToOneWithWhereWithoutVocab_mean_tableInput, vocab_tableUpdateWithoutVocab_mean_tableInput>, vocab_tableUncheckedUpdateWithoutVocab_mean_tableInput>
   }
 
   export type vocab_tableCreateNestedOneWithoutVocab_rela_tableInput = {
@@ -9111,6 +9251,13 @@ export namespace Prisma {
     connect?: vocab_anto_tableWhereUniqueInput
   }
 
+  export type vocab_mean_tableCreateNestedManyWithoutVocab_tableInput = {
+    create?: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput> | vocab_mean_tableCreateWithoutVocab_tableInput[] | vocab_mean_tableUncheckedCreateWithoutVocab_tableInput[]
+    connectOrCreate?: vocab_mean_tableCreateOrConnectWithoutVocab_tableInput | vocab_mean_tableCreateOrConnectWithoutVocab_tableInput[]
+    createMany?: vocab_mean_tableCreateManyVocab_tableInputEnvelope
+    connect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+  }
+
   export type vocab_rela_tableCreateNestedOneWithoutVocab_tableInput = {
     create?: XOR<vocab_rela_tableCreateWithoutVocab_tableInput, vocab_rela_tableUncheckedCreateWithoutVocab_tableInput>
     connectOrCreate?: vocab_rela_tableCreateOrConnectWithoutVocab_tableInput
@@ -9127,6 +9274,13 @@ export namespace Prisma {
     create?: XOR<vocab_anto_tableCreateWithoutVocab_tableInput, vocab_anto_tableUncheckedCreateWithoutVocab_tableInput>
     connectOrCreate?: vocab_anto_tableCreateOrConnectWithoutVocab_tableInput
     connect?: vocab_anto_tableWhereUniqueInput
+  }
+
+  export type vocab_mean_tableUncheckedCreateNestedManyWithoutVocab_tableInput = {
+    create?: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput> | vocab_mean_tableCreateWithoutVocab_tableInput[] | vocab_mean_tableUncheckedCreateWithoutVocab_tableInput[]
+    connectOrCreate?: vocab_mean_tableCreateOrConnectWithoutVocab_tableInput | vocab_mean_tableCreateOrConnectWithoutVocab_tableInput[]
+    createMany?: vocab_mean_tableCreateManyVocab_tableInputEnvelope
+    connect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
   }
 
   export type vocab_rela_tableUncheckedCreateNestedOneWithoutVocab_tableInput = {
@@ -9149,6 +9303,20 @@ export namespace Prisma {
     delete?: vocab_anto_tableWhereInput | boolean
     connect?: vocab_anto_tableWhereUniqueInput
     update?: XOR<XOR<vocab_anto_tableUpdateToOneWithWhereWithoutVocab_tableInput, vocab_anto_tableUpdateWithoutVocab_tableInput>, vocab_anto_tableUncheckedUpdateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableUpdateManyWithoutVocab_tableNestedInput = {
+    create?: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput> | vocab_mean_tableCreateWithoutVocab_tableInput[] | vocab_mean_tableUncheckedCreateWithoutVocab_tableInput[]
+    connectOrCreate?: vocab_mean_tableCreateOrConnectWithoutVocab_tableInput | vocab_mean_tableCreateOrConnectWithoutVocab_tableInput[]
+    upsert?: vocab_mean_tableUpsertWithWhereUniqueWithoutVocab_tableInput | vocab_mean_tableUpsertWithWhereUniqueWithoutVocab_tableInput[]
+    createMany?: vocab_mean_tableCreateManyVocab_tableInputEnvelope
+    set?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    disconnect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    delete?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    connect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    update?: vocab_mean_tableUpdateWithWhereUniqueWithoutVocab_tableInput | vocab_mean_tableUpdateWithWhereUniqueWithoutVocab_tableInput[]
+    updateMany?: vocab_mean_tableUpdateManyWithWhereWithoutVocab_tableInput | vocab_mean_tableUpdateManyWithWhereWithoutVocab_tableInput[]
+    deleteMany?: vocab_mean_tableScalarWhereInput | vocab_mean_tableScalarWhereInput[]
   }
 
   export type vocab_rela_tableUpdateOneWithoutVocab_tableNestedInput = {
@@ -9179,6 +9347,20 @@ export namespace Prisma {
     delete?: vocab_anto_tableWhereInput | boolean
     connect?: vocab_anto_tableWhereUniqueInput
     update?: XOR<XOR<vocab_anto_tableUpdateToOneWithWhereWithoutVocab_tableInput, vocab_anto_tableUpdateWithoutVocab_tableInput>, vocab_anto_tableUncheckedUpdateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableNestedInput = {
+    create?: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput> | vocab_mean_tableCreateWithoutVocab_tableInput[] | vocab_mean_tableUncheckedCreateWithoutVocab_tableInput[]
+    connectOrCreate?: vocab_mean_tableCreateOrConnectWithoutVocab_tableInput | vocab_mean_tableCreateOrConnectWithoutVocab_tableInput[]
+    upsert?: vocab_mean_tableUpsertWithWhereUniqueWithoutVocab_tableInput | vocab_mean_tableUpsertWithWhereUniqueWithoutVocab_tableInput[]
+    createMany?: vocab_mean_tableCreateManyVocab_tableInputEnvelope
+    set?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    disconnect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    delete?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    connect?: vocab_mean_tableWhereUniqueInput | vocab_mean_tableWhereUniqueInput[]
+    update?: vocab_mean_tableUpdateWithWhereUniqueWithoutVocab_tableInput | vocab_mean_tableUpdateWithWhereUniqueWithoutVocab_tableInput[]
+    updateMany?: vocab_mean_tableUpdateManyWithWhereWithoutVocab_tableInput | vocab_mean_tableUpdateManyWithWhereWithoutVocab_tableInput[]
+    deleteMany?: vocab_mean_tableScalarWhereInput | vocab_mean_tableScalarWhereInput[]
   }
 
   export type vocab_rela_tableUncheckedUpdateOneWithoutVocab_tableNestedInput = {
@@ -9322,6 +9504,7 @@ export namespace Prisma {
     word_ipa?: string | null
     word_voice?: string | null
     word_topic?: string | null
+    vocab_mean_table?: vocab_mean_tableCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableCreateNestedOneWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableCreateNestedOneWithoutVocab_tableInput
   }
@@ -9333,6 +9516,7 @@ export namespace Prisma {
     word_ipa?: string | null
     word_voice?: string | null
     word_topic?: string | null
+    vocab_mean_table?: vocab_mean_tableUncheckedCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableUncheckedCreateNestedOneWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableUncheckedCreateNestedOneWithoutVocab_tableInput
   }
@@ -9359,6 +9543,7 @@ export namespace Prisma {
     word_ipa?: NullableStringFieldUpdateOperationsInput | string | null
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
+    vocab_mean_table?: vocab_mean_tableUpdateManyWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUpdateOneWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUpdateOneWithoutVocab_tableNestedInput
   }
@@ -9370,6 +9555,69 @@ export namespace Prisma {
     word_ipa?: NullableStringFieldUpdateOperationsInput | string | null
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
+    vocab_mean_table?: vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableNestedInput
+    vocab_rela_table?: vocab_rela_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
+    vocab_syn_table?: vocab_syn_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
+  }
+
+  export type vocab_tableCreateWithoutVocab_mean_tableInput = {
+    word_name: string
+    word_type: string
+    word_ipa?: string | null
+    word_voice?: string | null
+    word_topic?: string | null
+    vocab_anto_table?: vocab_anto_tableCreateNestedOneWithoutVocab_tableInput
+    vocab_rela_table?: vocab_rela_tableCreateNestedOneWithoutVocab_tableInput
+    vocab_syn_table?: vocab_syn_tableCreateNestedOneWithoutVocab_tableInput
+  }
+
+  export type vocab_tableUncheckedCreateWithoutVocab_mean_tableInput = {
+    word_id?: number
+    word_name: string
+    word_type: string
+    word_ipa?: string | null
+    word_voice?: string | null
+    word_topic?: string | null
+    vocab_anto_table?: vocab_anto_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+    vocab_rela_table?: vocab_rela_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+    vocab_syn_table?: vocab_syn_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+  }
+
+  export type vocab_tableCreateOrConnectWithoutVocab_mean_tableInput = {
+    where: vocab_tableWhereUniqueInput
+    create: XOR<vocab_tableCreateWithoutVocab_mean_tableInput, vocab_tableUncheckedCreateWithoutVocab_mean_tableInput>
+  }
+
+  export type vocab_tableUpsertWithoutVocab_mean_tableInput = {
+    update: XOR<vocab_tableUpdateWithoutVocab_mean_tableInput, vocab_tableUncheckedUpdateWithoutVocab_mean_tableInput>
+    create: XOR<vocab_tableCreateWithoutVocab_mean_tableInput, vocab_tableUncheckedCreateWithoutVocab_mean_tableInput>
+    where?: vocab_tableWhereInput
+  }
+
+  export type vocab_tableUpdateToOneWithWhereWithoutVocab_mean_tableInput = {
+    where?: vocab_tableWhereInput
+    data: XOR<vocab_tableUpdateWithoutVocab_mean_tableInput, vocab_tableUncheckedUpdateWithoutVocab_mean_tableInput>
+  }
+
+  export type vocab_tableUpdateWithoutVocab_mean_tableInput = {
+    word_name?: StringFieldUpdateOperationsInput | string
+    word_type?: StringFieldUpdateOperationsInput | string
+    word_ipa?: NullableStringFieldUpdateOperationsInput | string | null
+    word_voice?: NullableStringFieldUpdateOperationsInput | string | null
+    word_topic?: NullableStringFieldUpdateOperationsInput | string | null
+    vocab_anto_table?: vocab_anto_tableUpdateOneWithoutVocab_tableNestedInput
+    vocab_rela_table?: vocab_rela_tableUpdateOneWithoutVocab_tableNestedInput
+    vocab_syn_table?: vocab_syn_tableUpdateOneWithoutVocab_tableNestedInput
+  }
+
+  export type vocab_tableUncheckedUpdateWithoutVocab_mean_tableInput = {
+    word_id?: IntFieldUpdateOperationsInput | number
+    word_name?: StringFieldUpdateOperationsInput | string
+    word_type?: StringFieldUpdateOperationsInput | string
+    word_ipa?: NullableStringFieldUpdateOperationsInput | string | null
+    word_voice?: NullableStringFieldUpdateOperationsInput | string | null
+    word_topic?: NullableStringFieldUpdateOperationsInput | string | null
+    vocab_anto_table?: vocab_anto_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
   }
@@ -9381,6 +9629,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableCreateNestedManyWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableCreateNestedOneWithoutVocab_tableInput
   }
 
@@ -9392,6 +9641,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableUncheckedCreateNestedManyWithoutVocab_tableInput
     vocab_syn_table?: vocab_syn_tableUncheckedCreateNestedOneWithoutVocab_tableInput
   }
 
@@ -9418,6 +9668,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUpdateManyWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUpdateOneWithoutVocab_tableNestedInput
   }
 
@@ -9429,6 +9680,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableNestedInput
     vocab_syn_table?: vocab_syn_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
   }
 
@@ -9439,6 +9691,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableCreateNestedOneWithoutVocab_tableInput
   }
 
@@ -9450,6 +9703,7 @@ export namespace Prisma {
     word_voice?: string | null
     word_topic?: string | null
     vocab_anto_table?: vocab_anto_tableUncheckedCreateNestedOneWithoutVocab_tableInput
+    vocab_mean_table?: vocab_mean_tableUncheckedCreateNestedManyWithoutVocab_tableInput
     vocab_rela_table?: vocab_rela_tableUncheckedCreateNestedOneWithoutVocab_tableInput
   }
 
@@ -9476,6 +9730,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUpdateManyWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUpdateOneWithoutVocab_tableNestedInput
   }
 
@@ -9487,6 +9742,7 @@ export namespace Prisma {
     word_voice?: NullableStringFieldUpdateOperationsInput | string | null
     word_topic?: NullableStringFieldUpdateOperationsInput | string | null
     vocab_anto_table?: vocab_anto_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
+    vocab_mean_table?: vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableNestedInput
     vocab_rela_table?: vocab_rela_tableUncheckedUpdateOneWithoutVocab_tableNestedInput
   }
 
@@ -9501,6 +9757,29 @@ export namespace Prisma {
   export type vocab_anto_tableCreateOrConnectWithoutVocab_tableInput = {
     where: vocab_anto_tableWhereUniqueInput
     create: XOR<vocab_anto_tableCreateWithoutVocab_tableInput, vocab_anto_tableUncheckedCreateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableCreateWithoutVocab_tableInput = {
+    word_meaning: string
+    word_example?: string | null
+    word_image?: string | null
+  }
+
+  export type vocab_mean_tableUncheckedCreateWithoutVocab_tableInput = {
+    mean_id?: number
+    word_meaning: string
+    word_example?: string | null
+    word_image?: string | null
+  }
+
+  export type vocab_mean_tableCreateOrConnectWithoutVocab_tableInput = {
+    where: vocab_mean_tableWhereUniqueInput
+    create: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableCreateManyVocab_tableInputEnvelope = {
+    data: vocab_mean_tableCreateManyVocab_tableInput | vocab_mean_tableCreateManyVocab_tableInput[]
+    skipDuplicates?: boolean
   }
 
   export type vocab_rela_tableCreateWithoutVocab_tableInput = {
@@ -9548,6 +9827,33 @@ export namespace Prisma {
     word_antonyms?: StringFieldUpdateOperationsInput | string
   }
 
+  export type vocab_mean_tableUpsertWithWhereUniqueWithoutVocab_tableInput = {
+    where: vocab_mean_tableWhereUniqueInput
+    update: XOR<vocab_mean_tableUpdateWithoutVocab_tableInput, vocab_mean_tableUncheckedUpdateWithoutVocab_tableInput>
+    create: XOR<vocab_mean_tableCreateWithoutVocab_tableInput, vocab_mean_tableUncheckedCreateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableUpdateWithWhereUniqueWithoutVocab_tableInput = {
+    where: vocab_mean_tableWhereUniqueInput
+    data: XOR<vocab_mean_tableUpdateWithoutVocab_tableInput, vocab_mean_tableUncheckedUpdateWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableUpdateManyWithWhereWithoutVocab_tableInput = {
+    where: vocab_mean_tableScalarWhereInput
+    data: XOR<vocab_mean_tableUpdateManyMutationInput, vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableInput>
+  }
+
+  export type vocab_mean_tableScalarWhereInput = {
+    AND?: vocab_mean_tableScalarWhereInput | vocab_mean_tableScalarWhereInput[]
+    OR?: vocab_mean_tableScalarWhereInput[]
+    NOT?: vocab_mean_tableScalarWhereInput | vocab_mean_tableScalarWhereInput[]
+    mean_id?: IntFilter<"vocab_mean_table"> | number
+    word_id?: IntFilter<"vocab_mean_table"> | number
+    word_meaning?: StringFilter<"vocab_mean_table"> | string
+    word_example?: StringNullableFilter<"vocab_mean_table"> | string | null
+    word_image?: StringNullableFilter<"vocab_mean_table"> | string | null
+  }
+
   export type vocab_rela_tableUpsertWithoutVocab_tableInput = {
     update: XOR<vocab_rela_tableUpdateWithoutVocab_tableInput, vocab_rela_tableUncheckedUpdateWithoutVocab_tableInput>
     create: XOR<vocab_rela_tableCreateWithoutVocab_tableInput, vocab_rela_tableUncheckedCreateWithoutVocab_tableInput>
@@ -9584,6 +9890,33 @@ export namespace Prisma {
 
   export type vocab_syn_tableUncheckedUpdateWithoutVocab_tableInput = {
     word_synonyms?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type vocab_mean_tableCreateManyVocab_tableInput = {
+    mean_id?: number
+    word_meaning: string
+    word_example?: string | null
+    word_image?: string | null
+  }
+
+  export type vocab_mean_tableUpdateWithoutVocab_tableInput = {
+    word_meaning?: StringFieldUpdateOperationsInput | string
+    word_example?: NullableStringFieldUpdateOperationsInput | string | null
+    word_image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type vocab_mean_tableUncheckedUpdateWithoutVocab_tableInput = {
+    mean_id?: IntFieldUpdateOperationsInput | number
+    word_meaning?: StringFieldUpdateOperationsInput | string
+    word_example?: NullableStringFieldUpdateOperationsInput | string | null
+    word_image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type vocab_mean_tableUncheckedUpdateManyWithoutVocab_tableInput = {
+    mean_id?: IntFieldUpdateOperationsInput | number
+    word_meaning?: StringFieldUpdateOperationsInput | string
+    word_example?: NullableStringFieldUpdateOperationsInput | string | null
+    word_image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
